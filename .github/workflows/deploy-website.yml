@@ -10,28 +10,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: .NET 
-      - uses: actions/setup-dotnet@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
         with:
           global-json-file: global.json
 
-      - run: Building Signify Web App
-        working-directory: Signify.Web
+      - name: Building Singify Web App
+        run: dotnet restore
+        working-directory: Singify.Web
 
       - name: Restore dependencies
         run: dotnet restore
-        working-directory: Signify.Web
+        working-directory: Singify.Web
 
       - name: Build
         run: dotnet build --configuration Release --no-restore
-        working-directory: Signify.Web
+        working-directory: Singify.Web
 
       - name: Publish
         run: dotnet publish --configuration Release --no-build --output ../release
-        working-directory: Signify.Web
+        working-directory: Singify.Web
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./release/wwwroot
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./release/wwwroot
