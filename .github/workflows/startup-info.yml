@@ -1,5 +1,5 @@
 name: Startup Info
-description: 'Provides information about the repository on startup'
+
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs:
