@@ -1,9 +1,9 @@
 name: learn-github-actions
-run-name: Author - ${{ github.actor }}
+run-name: ${{ github.ref }}
 on: [push]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: Branch ${{ github.ref }}
+      - run: ${{ github.actor }}
