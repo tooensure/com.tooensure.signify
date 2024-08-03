@@ -9,4 +9,4 @@ jobs:
 
     steps:
     - name: Run Startup Info Action
-      uses: ./.github/actions/startup-info
+      uses: ./.github/actions/startup-info.yml
