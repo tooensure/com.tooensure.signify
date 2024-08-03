@@ -1,0 +1,6 @@
+services:
+  signify.api:
+    image: ${DOCKER_REGISTRY-}signifyapi
+    build:
+      context: .
+      dockerfile: Signify.Api/Dockerfile
