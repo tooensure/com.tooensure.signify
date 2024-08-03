@@ -7,6 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signify.Api", "Signify.Api\
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{D52F58DF-8B80-425E-95A0-18C9ADA0EC6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signify.Web", "Signify.Web\Signify.Web.csproj", "{DBE9FE42-2790-4F6E-93EE-BA3ABC944E1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "actions", "actions", "{4D81BBDF-2145-4E84-8E5D-F9BAC0AB28C8}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\deploy.yml = .github\workflows\deploy.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +28,10 @@ Global
 		{D52F58DF-8B80-425E-95A0-18C9ADA0EC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D52F58DF-8B80-425E-95A0-18C9ADA0EC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D52F58DF-8B80-425E-95A0-18C9ADA0EC6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBE9FE42-2790-4F6E-93EE-BA3ABC944E1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBE9FE42-2790-4F6E-93EE-BA3ABC944E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBE9FE42-2790-4F6E-93EE-BA3ABC944E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBE9FE42-2790-4F6E-93EE-BA3ABC944E1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

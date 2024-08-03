@@ -1,0 +1,37 @@
+﻿name: Deploy Blazor WebAssembly App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Set the branch you want to trigger the deployment
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x  # Use the appropriate .NET version
+
+    - name: Restore dependencies
+      run: dotnet restore
+      working-directory: Signify.Web
+
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+      working-directory: Signify.Web
+
+    - name: Publish
+      run: dotnet publish --configuration Release --no-build --output ../release
+      working-directory: Signify.Web
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }} 
+        publish_dir: ./release/wwwroot
