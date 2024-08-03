@@ -7,6 +7,17 @@ jobs:
   startup-info-job:
     runs-on: ubuntu-latest
 
-    steps:
-    - name: Run Startup Info Action
-      uses: .github/actoins/info.yml
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Get repository info
+      run: |
+        echo "Repository: ${{ github.repository }}"
+        echo "Branch: ${{ github.ref }}"
+        echo "Latest Commit: ${{ github.sha }}"
+        echo "Commit Message: ${{ github.event.head_commit.message }}"
+        echo "Commit Author: ${{ github.event.head_commit.author.name }}"
+        echo "Contributors:"
+        git log --format='%aN' | sort -u
+        echo "Number of Commits:"
+        git rev-list --count HEAD
