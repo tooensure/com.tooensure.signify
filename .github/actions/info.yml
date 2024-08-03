@@ -1,21 +1,9 @@
 name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
+run-name: ${{ github.ref }} - ${{ github.actor }}
 on: [push]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: |
-            echo "Repository: ${{ github.repository }}"
-            echo "Branch: ${{ github.ref }}"
-            echo "Latest Commit: ${{ github.sha }}"
-            echo "Commit Message: ${{ github.event.head_commit.message }}"
-            echo "Commit Author: ${{ github.event.head_commit.author.name }}"
-            echo "Contributors:"
-            git log --format='%aN' | sort -u
-            echo "Number of Commits:"
-            git rev-list --count HEAD
+      - name: Author
+      - run: echo ${{ github.actor }}
