@@ -1,0 +1,12 @@
+# .github/workflows/startup-info.yml
+name: 'Startup Info Workflow'
+
+on: [push]
+
+jobs:
+  startup-info-job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run Startup Info Action
+      uses: ./.github/actions/startup-info

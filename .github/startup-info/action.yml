@@ -1,0 +1,19 @@
+# .github/actions/startup-info/action.yml
+name: 'Startup Info'
+description: 'Provides information about the repository on startup'
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Get repository info
+      run: |
+        echo "Repository: ${{ github.repository }}"
+        echo "Branch: ${{ github.ref }}"
+        echo "Latest Commit: ${{ github.sha }}"
+        echo "Commit Message: ${{ github.event.head_commit.message }}"
+        echo "Commit Author: ${{ github.event.head_commit.author.name }}"
+        echo "Contributors:"
+        git log --format='%aN' | sort -u
+        echo "Number of Commits:"
+        git rev-list --count HEAD
