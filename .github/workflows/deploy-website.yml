@@ -1,4 +1,4 @@
-name: Deploy Blazor WebAssembly App to GitHub Pages
+name: Deploy Singify Web App to GitHub Pages
 run-name: ${{ github.actor }} made push request on ${{ github.ref }}
 
 on: [push]
