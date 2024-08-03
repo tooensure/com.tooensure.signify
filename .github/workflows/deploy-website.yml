@@ -1,10 +1,8 @@
 name: Deploy Blazor WebAssembly App to GitHub Pages
 run-name: ${{ github.actor }} made push request on ${{ github.ref }}
 
-on:
-  push:
-    branches:
-      - main  # Set the branch you want to trigger the deployment
+on: [push]
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
