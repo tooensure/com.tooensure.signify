@@ -9,4 +9,4 @@ jobs:
 
     steps:
     - name: Run Startup Info Action
-      uses: ./actoins/startup-info.yml
+      uses: .github/actoins/info.yml
