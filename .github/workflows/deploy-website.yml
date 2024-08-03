@@ -4,7 +4,7 @@ run-name: ${{ github.actor }} made push request on ${{ github.ref }}
 on: [push]
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
