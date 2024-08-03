@@ -1,8 +1,10 @@
-name: learn-github-actions
+name: Deploy Blazor WebAssembly App to GitHub Pages
 run-name: ${{ github.actor }} made push request on ${{ github.ref }}
 
-on: [push]
-
+on:
+  push:
+    branches:
+      - main  # Set the branch you want to trigger the deployment
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -11,5 +13,24 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           global-json-file: Signify.Web/global.json
-      - run: Building Signify Website
+
+      - run: Building Signify Web App
         working-directory: Signify.Web
+
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: Signify.Web
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+        working-directory: Signify.Web
+
+      - name: Publish
+        run: dotnet publish --configuration Release --no-build --output ../release
+        working-directory: Signify.Web
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./release/wwwroot
